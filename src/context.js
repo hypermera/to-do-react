@@ -18,6 +18,11 @@ const reducer =(state,action) => {
                 ...state,
                 todos:[...state.todos,action.payload]
             }
+        case "UPDATE_TODO":
+            return {
+                 ...state,
+                 todos:state.todos.map(todo => todo.id === action.payload.id ? action.payload : todo)
+            }
         default:
             return state
     }
@@ -26,15 +31,23 @@ const reducer =(state,action) => {
 
 //provider sağlayıcı
 export class TodoProvider extends Component {
+  
     state = {
             todos : [
                 {
-                id : 1,
-                todo : "REACT"
-            },
+                    id:1,
+                    todo:"React ile bir app yap",
+                    finish: true
+                },
                 {
                 id : 2,
-                todo : "FİREBASE"
+                todo : "React öğrenmeye devam et",
+                finish : false
+            },
+                {
+                id : 3,
+                todo : "Firebase ile react bağlantısı yapmaya çalış",
+                finish : false
             }
         ],
         dispatch : action => {

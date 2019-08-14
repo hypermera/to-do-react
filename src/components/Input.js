@@ -7,7 +7,8 @@ export default class Input extends Component {
         super(props)
         this.state = {
             id :"",
-            todo : ""
+            todo : "",
+            finish:false
         }
         
     }
@@ -25,7 +26,8 @@ export default class Input extends Component {
 
         const newTODO = {
             id:uniqid(),
-            todo:todo
+            todo:todo,
+            finish:false
         }
         console.log(newTODO)
         dispatch({type: "ADD_TODO",payload:newTODO})

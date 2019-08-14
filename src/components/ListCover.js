@@ -12,13 +12,14 @@ export default class ListCover extends Component {
                             return (
                                 <div className="col-12">
                                     <hr/>
-                                    <ul class="list-group">
+                                    <ul className="list-group">
                                     {todos.map(todo => {
                                     return ( 
                                         <List 
                                         key = {todo.id} 
                                         job = {todo.todo}
                                         id = {todo.id}
+                                        finish = {todo.finish}
                                         />
                                         )}
                                     )}
